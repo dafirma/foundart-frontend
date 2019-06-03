@@ -2,6 +2,7 @@ import React, { Component } from "react";
 //import Menu from "./Menu";
 import Search from "./Search";
 import Filter from "./Filter";
+//import List from "./List";
 
 
 
@@ -12,6 +13,7 @@ class Navbar extends Component{
         Navbar
         <Search/>
         <Filter/>
+      
       </div>
     )
     

@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "5cf3e77fc5b7bb2dee501etrterr" ,
+    "title":"Photoragaphy",
+    "price":"100",
+    "category":"Fine Art",
+    "userID":"5cf3e1b98a36e228ca1242f8",
+    "style":"test",
+    "description":"Bridges take people across rivers. Leaders take people across ignorance. With a leader, the destination of a journey is sure.   ",
+    "rent":[],
+    "image":"https://images.pexels.com/photos/2331573/pexels-photo-2331573.jpeg"
+  },
+  {
+    "_id": "5cf3e77fc5b7bb2dee50sdfsdf" ,
+    "title":" Relax on the Beach",
+    "price":"200",
+    "category":"Photography",
+    "userID":"5cf3e1b98a36e228ca1242f8",
+    "style":"photography",
+    "description":"The beach makes everything better—and it's good for your mind, body and spirit. We're bringing you some beach inspiration today straight from the Gulf Coast of Florida",
+    "rent":[],
+    "image":"https://images.pexels.com/photos/2252315/pexels-photo-2252315.jpeg"
+  },
+  {
+    "_id": "5cf3e77fc5b7bb2dee50ssdfsdf" ,
+    "title":"Deep Lake",
+    "price":"25",
+    "category":"test",
+    "userID":"5cf3e1b98a36e228ca1242f8",
+    "style":"blabla",
+    "description":"A lake is the landscape’s most beautiful and expressive feature. It is earth’s eye; looking into which the beholder measures the depth of his own nature.",
+    "rent":[],
+    "image":"https://images.pexels.com/photos/1450082/pexels-photo-1450082.jpeg"
+  },
+  {
+    "_id": "5cf3e77fc5b7bb2dee501057" ,
+    "title":"Crezy Mango",
+    "price":"50",
+    "category":"Conteporany",
+    "userID":"5cf3e1b98a36e228ca1242f8",
+    "style":"",
+    "description":"mango mango managooooo",
+    "rent":[],
+    "image":"https://images.pexels.com/photos/2294471/pexels-photo-2294471.jpeg?"
+  }
+]
