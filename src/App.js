@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import { Route } from "react-router-dom";
 import ArticleDetails from './components/ArticleDetails'
 import AddArticle from "./components/AddArticle";
+import Favorites from './pages/Favorites'
 
 class App extends Component{
   render(){
@@ -16,6 +17,8 @@ class App extends Component{
         <Route exact path="/" component={List}/>
         <Route path ="/article/:id" component={ArticleDetails}/>
         <Route path ='/addarticle' component={AddArticle} />
+        <Route path ='/dashboard' component={List}/>
+        <Route path = '/favorites' component={Favorites}/>
         <ButtonAdd/>
         <Footer/>
       </div>
