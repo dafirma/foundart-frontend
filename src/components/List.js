@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Item from './Item';
 import data from '../data/articles.json';
-import '../stylesheets/List.css';
+//import '../stylesheets/List.css';
 
 class List extends Component{
   constructor(){

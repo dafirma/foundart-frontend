@@ -1,5 +1,5 @@
 import React, { Component }from "react";
-//import './App.css';
+import './App.css';
 import Navbar from "./components/Navbar";
 import List from './components/List';
 import ButtonAdd from './components/ButtonAdd';
@@ -11,7 +11,7 @@ import AddArticle from "./components/AddArticle";
 class App extends Component{
   render(){
     return(
-      <div>
+      <div className="app">
         <Navbar/>
         <Route exact path="/" component={List}/>
         <Route path ="/article/:id" component={ArticleDetails}/>
