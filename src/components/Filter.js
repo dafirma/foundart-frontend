@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import ButtonOk from './ButtonOk';
+import Distance from '../components/Distance';
+import Divider from '@material-ui/core/Divider';
 
 class Filter extends Component{
   constructor(){
@@ -36,13 +39,13 @@ class Filter extends Component{
       {label:"Graffiti", value:8},
       {label:"Music", value:5},
     ]
-    const distance =[
+    /* const distance =[
       {label:"All", value:1},
       {label:"1 Km", value:2},
       {label:"2 Km", value:3},
       {label:"5 Km", value:4},
       {label:"10 Km", value:5},
-    ]
+    ] */
     const category = [
       {label: "All", value:1},
       {label: "Painting", value:2},
@@ -57,8 +60,11 @@ class Filter extends Component{
     return(
       <div>
         <Select options={style} defaultValue="All" onChange={this.onInputChangeStyle}/>
-        <Select options={distance} defaultValue="All" onChange={this.onInputChangeDistance}/>
+        <Divider/>
+        <Distance/>
+        <Divider/>
         <Select options={category} defaultValue="All" onChange={this.onInputChangeCategory}/>
+        <ButtonOk/>
       </div>
     )
   }

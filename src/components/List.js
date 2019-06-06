@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Item from './Item';
 import data from '../data/articles.json';
-//import '../stylesheets/List.css';
+import axios from 'axios';
+import Icons from './Icons';
+import '../stylesheets/List.css';
 
 class List extends Component{
   constructor(){
@@ -9,10 +11,23 @@ class List extends Component{
     this.state={
       articles:[]
     }
+    this.server = axios.create({
+      baseURL:'http://localhost:5000',
+      withCredentials:true
+    })
   }
   componentDidMount(){
     const articles = data;
     this.setState({articles})
+    this.getData()
+  }
+
+  getData(){
+    this.server.get('/api/article')
+    .then(result =>{
+      console.log('desde la ruta',result.data)
+    })
+
   }
   render(){
     const articles = [...this.state.articles];
@@ -23,6 +38,9 @@ class List extends Component{
         {articles.map((article, index)=>
         {return <Item key={index} {...article}/>})}
         </ul>
+        <div>
+          <Icons/>
+        </div>
       </div>
     )
   }

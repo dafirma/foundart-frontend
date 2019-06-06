@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 //import Menu from "./Menu";
 import Search from "./Search";
-import Filter from "./Filter";
+//import Filter from "./Filter";
 //import List from "./List";
-import LongMenu from './LongMenu';
+import LongMenuRight from './LongMenuRight';
+
 //import { Link } from 'react-router-dom';
-import data from '../data/articles.json';
+///import data from '../data/articles.json';
 import menu from '../data/menu.json'
+import '../stylesheets/navbar.css'
 
 
 class Navbar extends Component{
@@ -29,10 +31,10 @@ class Navbar extends Component{
   
     return(
       <div>
-        Navbar
-        <Search/>
-        <Filter/>
-        <LongMenu/>
+        <div className='container-navbar'>
+          <LongMenuRight/>
+          <Search/>
+        </div>
         
         
       </div>

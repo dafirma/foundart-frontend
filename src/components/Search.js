@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LongMenuLeft from './LongMenuLeft';
+
 
 class Search extends Component{
   constructor(props){
@@ -21,7 +23,6 @@ class Search extends Component{
   render(){
     return(
       <div>
-        Search
         <form onSubmit={this.onFormSubmit}>
           <input onChange={this.onInputChange} 
           value={this.state.term}
@@ -31,7 +32,11 @@ class Search extends Component{
           />
           <button type='submit'>search</button>
         </form>
+        <div>
+        <LongMenuLeft/>
       </div>
+      </div>
+
     )
   }
 }
