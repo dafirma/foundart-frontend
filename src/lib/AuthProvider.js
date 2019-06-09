@@ -17,10 +17,7 @@ export const withAuth = Comp => {
                 user={authStore.user}
                 logout={authStore.logout}
                 isLoggedin={authStore.isLoggedin}
-                favTest={authStore.favorite}
-                favNumber = {authStore.fav}
-                getData={authStore.update}
-                messageError={authStore.message}
+                message={authStore.message}
                 {...this.props}
               />
             );
@@ -36,11 +33,8 @@ class AuthProvider extends Component {
     isLoggedin: false,
     user: null,
     isLoading: true,
-    favoriteId:[],
-    fav:[],
-    message:false
+    message: ""
   };
-
 
   componentDidMount() {
     auth
@@ -49,46 +43,7 @@ class AuthProvider extends Component {
         this.setState({
           isLoggedin: true,
           user,
-          isLoading: false,
-  
-        });
-      })
-      .catch(() => {
-        this.setState({
-          isLoggedin: false,
-          user: null,
           isLoading: false
-        });
-      });
-  }
-  favorite = ()=>{
-   // console.log('favorito contexto')
-    auth
-    .fav()
-    .then(resp =>{
-     // console.log('result backend',resp)
-       this.setState({
-        fav:resp
-      })
-    })
-    .catch(({response:{data:error}}) => {
-      this.setState({
-        message:error.statusMessage
-      })
-    })
-  }
-
-  update = () => {
-   // console.log('estoy actualizando!!')
-        auth
-      .me()
-      .then(user => {
-        //console.log(user)
-        this.setState({
-          isLoggedin: true,
-          user,
-          isLoading: false,
-  
         });
       })
       .catch(() => {
@@ -101,9 +56,9 @@ class AuthProvider extends Component {
   }
 
   signup = user => {
-    const { username, password, preference } = user;
+    const { username, password, city, neighbourhood, beerType, favouriteBeers, userimage } = user;
     auth
-      .signup({ username, password, preference })
+      .signup({ username, password, city, neighbourhood, beerType, favouriteBeers, userimage })
       .then(user => {
         this.setState({
           isLoggedin: true,
@@ -112,7 +67,7 @@ class AuthProvider extends Component {
       })
       .catch(({ response: { data: error } }) => {
         this.setState({
-          message: error.statusMessage
+          message: error.message
         });
       });
   };
@@ -124,14 +79,16 @@ class AuthProvider extends Component {
       .then(user => {
         this.setState({
           isLoggedin: true,
-          user
+          user,
+          isLoading: false
         });
       })
-      .catch((err) => {
-       // console.log(err)
+      .catch((error) => {
+        console.log('the error', error)
+        // { response: { data: error } }
         this.setState({
-          message:err
-        })
+          message: error.message
+        });
       });
   };
 
@@ -144,33 +101,26 @@ class AuthProvider extends Component {
           user: null
         });
       })
-      .catch(() => {});
-  }; 
-
+      .catch(() => { });
+  };
   render() {
-    const { isLoading, isLoggedin, user, fav, message } = this.state;
-   // console.log(this.props)
-    //console.log(user);
+    const { isLoading, isLoggedin, user, message } = this.state;
     return isLoading ? (
       <div>Loading</div>
     ) : (
-      <Provider
-        value={{
-          isLoggedin,
-          user,
-          login: this.login,
-          logout: this.logout,
-          signup: this.signup,
-          favorite:this.favorite,
-          favNumber: fav,
-          update: this.update,
-          messageError:message
-          //or messageError:this.state.message
-        }}
-      >
-        {this.props.children}
-      </Provider>
-    );
+        <Provider
+          value={{
+            isLoggedin,
+            user,
+            login: this.login,
+            logout: this.logout,
+            signup: this.signup,
+            message,
+          }}
+        >
+          {this.props.children}
+        </Provider>
+      );
   }
 }
 

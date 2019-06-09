@@ -1,4 +1,4 @@
-import React, { Component }from "react";
+import React, { Component } from "react";
 import './App.css';
 import Navbar from "./components/Navbar";
 import List from './components/List';
@@ -10,18 +10,25 @@ import AddArticle from "./components/AddArticle";
 import Favorites from './pages/Favorites';
 import Login from './pages/Login';
 
-class App extends Component{
-  render(){
-    return(
+import PrivateRoute from './components/auth/PrivateRoute';
+import AnonRoute from './components/auth/AnonRoute';
+import AuthProvider from './lib/AuthProvider';
+
+
+class App extends Component {
+  render() {
+    return (
       <div className="app">
-        <Navbar/>
-        <Route exact path="/" component={List}/>
-        <Route path ="/article/:id" component={ArticleDetails}/>
-        <Route path ='/addarticle' component={AddArticle} />
-        <Route path ='/dashboard' component={List}/>
-        <Route path = '/favorites' component={Favorites}/>
-        <Route path = '/login' component={Login}/>
-        {/* <Footer/> */}
+        <AuthProvider>
+          <Navbar />
+          <Route exact path="/" component={List} />
+          <Route path="/article/:id" component={ArticleDetails} />
+          <PrivateRoute path='/addarticle' component={AddArticle} />
+          <Route path='/dashboard' component={List} />
+          <PrivateRoute path='/favorites' component={Favorites} />
+          <Route path='/login' component={Login} />
+          {/* <Footer/> */}
+        </AuthProvider>
       </div>
     )
 
