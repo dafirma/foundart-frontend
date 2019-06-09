@@ -20,14 +20,14 @@ class Navbar extends Component{
     }
   }
   componentDidMount(){
-    console.log(menu)
+    //console.log(menu)
     const options = menu;
     this.setState(options)
   }
   
   render(){
-    const options = [...this.state.options];
-    console.log(options)
+    //const options = [...this.state.options];
+   // console.log(options)
   
     return(
       <div>

@@ -11,6 +11,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import logo from '../images/icons8-round-512.png'
 import { Link } from 'react-router-dom'
+import '../stylesheets/navbar.css'
 
 const useStyles = makeStyles({
   list: {
@@ -80,7 +81,7 @@ function LongMenuRight() {
   return (
     <div>
       
-      <Button onClick={toggleDrawer('left', true)}><img src={logo} alt='logo' width='20%'/></Button>
+      <Button onClick={toggleDrawer('left', true)}><img className='logo-navbar' src={logo} alt='logo'/></Button>
      
       <SwipeableDrawer
         open={state.left}

@@ -26,6 +26,7 @@ const useStyles = makeStyles({
 export default function Item(props) {
   const classes = useStyles();
   const article = props;
+  const image = article.imgPath
   //console.log(article)
 
   return (
@@ -33,12 +34,12 @@ export default function Item(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={article.image}
+          image={image}
           title={article.title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {article.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {article.description}
@@ -47,10 +48,10 @@ export default function Item(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          Favorite
         </Button>
         <Button size="small" color="primary">
-          Learn More
+          More Info
         </Button>
       </CardActions>
     </Card>
