@@ -3,15 +3,15 @@ import axios from "axios";
 class Auth {
   constructor() {
     this.auth = axios.create({
-      baseURL: process.env.REACT_APP_FIREBASE,
+      baseURL: 'http://localhost:5000',
       withCredentials: true
     });
   }
 
   signup(user) {
-    const { username, password, preference } = user;
+    const { username, password, city, neighbourhood, beerType, favouriteBeers, userimage } = user;
     return this.auth
-      .post("/auth/signup", { username, password, preference })
+      .post("/auth/signup", { username, password, city, neighbourhood, beerType, favouriteBeers, userimage })
       .then(({ data }) => data);
   }
 
@@ -27,24 +27,8 @@ class Auth {
   }
 
   me() {
-    return this.auth.get("/auth/me")
-    .then(response =>{
-     // console.log(response)
-      return response.data
-    })
+    return this.auth.get("/auth/me").then(response => response.data);
   }
-
-  fav(){
-    return this.auth.get("/food/favorite")
-    .then(response => response.data)
- 
-  }
-
-  sendToApp(val){
-   // const {favorites} =val
-    //console.log(favorites);
-  }
-  
 }
 
 const auth = new Auth();
